@@ -19,13 +19,31 @@ app.get("/", (req,res)=>{
 });
 
 app.post("/", (req,res)=>{
-    // const {foto} = req.files;
+    const { foto }= req.files;
+    console.log (foto)
+    const { name }= foto;
+    foto.mv(`${__dirname}/archivos/${name}`, (err)=>{
+        res.send("Archivo cargado con exito");
+    });
+});
 
-    // foto.mv(`${__dirname}/archivos/${foto.name}`, (err)=>{
-    //     if (err){
-    //         console.log(err);
-    //         res.status(500).send("Algo salio mmal");
-    //     }
-    //     res.send("Archivo subido con exito");
-    // })
-})
+// app.post("/", (req,res)=>{
+//     // const {foto} = req.files;
+
+//     // foto.mv(`${__dirname}/archivos/${foto.name}`, (err)=>{
+//     //     if (err){
+//     //         console.log(err);
+//     //         res.status(500).send("Algo salio mmal");
+//     //     }
+//     //     res.send("Archivo subido con exito");
+//     // })
+// })
+
+app.post("/", (req,res)=>{
+    const { foto }= req.files;
+    console.log (foto)
+    const { name }= foto;
+    foto.mv(`${__dirname}/archivos/${name}`, (err)=>{
+        res.send("Archivo cargado con exito");
+    });
+});
